@@ -16,6 +16,14 @@ import (
 
 func testChannel(channel *model.Channel, request ChatRequest) (error, *OpenAIError) {
 	switch channel.Type {
+	case common.ChannelTypePaLM:
+		fallthrough
+	case common.ChannelTypeAnthropic:
+		fallthrough
+	case common.ChannelTypeBaidu:
+		fallthrough
+	case common.ChannelTypeZhipu:
+		return errors.New("该渠道类型当前版本不支持测试，请手动测试"), nil
 	case common.ChannelTypeAzure:
 		request.Model = "gpt-35-turbo"
 	default:
@@ -45,8 +53,7 @@ func testChannel(channel *model.Channel, request ChatRequest) (error, *OpenAIErr
 		req.Header.Set("Authorization", "Bearer "+channel.Key)
 	}
 	req.Header.Set("Content-Type", "application/json")
-	client := &http.Client{}
-	resp, err := client.Do(req)
+	resp, err := httpClient.Do(req)
 	if err != nil {
 		return err, nil
 	}
