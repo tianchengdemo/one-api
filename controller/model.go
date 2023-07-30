@@ -289,6 +289,15 @@ func init() {
 			Parent:     nil,
 		},
 		{
+			Id:         "Embedding-V1",
+			Object:     "model",
+			Created:    1677649963,
+			OwnedBy:    "baidu",
+			Permission: permission,
+			Root:       "Embedding-V1",
+			Parent:     nil,
+		},
+		{
 			Id:         "PaLM-2",
 			Object:     "model",
 			Created:    1677649963,
@@ -340,6 +349,15 @@ func init() {
 			OwnedBy:    "ali",
 			Permission: permission,
 			Root:       "qwen-plus-v1",
+			Parent:     nil,
+		},
+		{
+			Id:         "SparkDesk",
+			Object:     "model",
+			Created:    1677649963,
+			OwnedBy:    "xunfei",
+			Permission: permission,
+			Root:       "SparkDesk",
 			Parent:     nil,
 		},
 	}
